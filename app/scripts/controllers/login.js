@@ -25,13 +25,13 @@ angular.module('taksiajoApp')
       );
     };
 
-    $scope.createAccount = function(email, pass, confirm) {
+    $scope.createAccount = function(email, pass, confirm, name, provision, tax) {
       $scope.err = null;
       if( !pass ) {
-        $scope.err = 'Please enter a password';
+        $scope.err = 'Kirjoita salasana';
       }
       else if( pass !== confirm ) {
-        $scope.err = 'Passwords do not match';
+        $scope.err = 'Salasanat eivät täsmää';
       }
       else {
         Auth.$createUser({email: email, password: pass})

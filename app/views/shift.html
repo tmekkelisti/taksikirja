@@ -1,0 +1,23 @@
+<p>This is the shift view.</p>
+
+<form role="form">
+    
+    <p class="form-group">
+      <label>Päivämäärä:</label>
+      <input type="text" name="date" ng-model="date" class="form-control" placeholder="12/12/2015" />
+    </p>
+
+    <p class="form-group">
+      <label>Alvillinen kassa</label>
+      <input type="number" name="earnings" ng-model="earnings" class="form-control">
+    </p>
+
+  </form>
+
+  <button class="btn btn-primary" ng-click="addShift(date, earnings)">lisää vuoro</button>
+
+  <ul ng-repeat="shift in shifts">
+  	<li>{{shift.date}} kassa: {{shift.earnings}} alv0: {{shift.earnings-alv0}} wage: {{shift.wage}}</li>
+  </ul>
+
+

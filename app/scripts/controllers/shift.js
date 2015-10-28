@@ -8,7 +8,7 @@
  * Controller of the taksiajoApp
  */
 angular.module('taksiajoApp')
-  .controller('ShiftCtrl', function ($scope, Ref, $firebaseArray, $timeout, user, $firebaseObject) {
+  .controller('ShiftCtrl', function (Auth, $scope, Ref, $firebaseArray, $timeout, user, $firebaseObject) {
     
     $scope.user = user;
     $scope.logout = function() { Auth.$unauth(); };
@@ -31,10 +31,4 @@ angular.module('taksiajoApp')
 
     };
 
-    function alert(msg) {
-      $scope.err = msg;
-      $timeout(function() {
-        $scope.err = null;
-      }, 5000);
-    }
   });

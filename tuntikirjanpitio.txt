@@ -1,0 +1,2 @@
+271015  idean miettimistä, protoilua ja niiden kuoppaamista   7h
+281015  taksikirjan kehys, firebase ja deploy herokuun        7h

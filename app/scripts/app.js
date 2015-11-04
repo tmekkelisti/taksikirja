@@ -17,5 +17,6 @@ angular.module('taksiajoApp', [
     'ngTouch',
     'firebase',
     'firebase.ref',
-    'firebase.auth'
+    'firebase.auth',
+    'ui.bootstrap'
   ]);

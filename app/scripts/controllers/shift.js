@@ -40,11 +40,11 @@ angular.module('taksiajoApp')
     $scope.selectedMonth = new Date().getMonth();
 
     $scope.monthFilter = function(element){
-      if(!$scope.selectedMonth) {
+      if(!$scope.selectedMonth){
         return true;
-      }
-      return element.date.getMonth() === $scope.selectedMonth;
-    };
+      } 
+      return element.date.getMonth() == $scope.selectedMonth;
+    }
 
 
 

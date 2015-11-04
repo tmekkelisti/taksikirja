@@ -25,7 +25,7 @@ angular.module('taksiajoApp')
       );
     };
 
-    $scope.createAccount = function(email, pass, confirm, name, provision, tax) {
+    $scope.createAccount = function(email, pass, confirm) {
       $scope.err = null;
       if( !pass ) {
         $scope.err = 'Kirjoita salasana';

@@ -1,3 +1,4 @@
 271015  idean miettimistä, protoilua ja niiden kuoppaamista   7h
 281015  taksikirjan kehys, firebase ja deploy herokuun        7h
 041115  firebaseen talletus oikein, filter, $loaded, $watch   7h
+061115  pientä säätöä shifts näkymään ja controlleriin        1h

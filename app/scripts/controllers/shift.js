@@ -39,12 +39,21 @@ angular.module('taksiajoApp')
 
     $scope.selectedMonth = new Date().getMonth();
 
+    var monthNames = ['Tammikuu', 'Helmikuu', 'Maaliskuu', 'Huhtikuu', 'Toukokuu',
+        'Kesäkuu', 'Heinäkuu', 'Elokuu', 'Syyskuu', 'Lokakuu', 'Marraskuu', 'Joulukuu'];
+
+
+
+    $scope.$watch('selectedMonth', function(){
+        $scope.monthName = monthNames[$scope.selectedMonth];
+    })
+
     $scope.monthFilter = function(element){
       if(!$scope.selectedMonth){
         return true;
       } 
       return element.date.getMonth() == $scope.selectedMonth;
-    }
+    };
 
 
 

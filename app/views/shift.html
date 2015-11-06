@@ -24,7 +24,7 @@
 <hr>
 
 <select ng-model="selectedMonth" class="form-control">
-      <option></option>
+      <option value=""></option>
       <option value="0">Tammikuu</option>  
       <option value="1">Helmikuu</option>  
       <option value="2">Maaliskuu</option>  
@@ -39,7 +39,10 @@
       <option value="11">Joulukuu</option>  
 </select>
 <br>
-<ul ng-repeat="shift in shifts | filter: monthFilter | orderBy: 'date'">
+<h2>{{monthName}}</h2>
+
+<hr>
+<ul ng-repeat="shift in shifts | filter: monthFilter | orderBy: '-date'">
   <li>{{shift.date | date:'dd/MM/yyyy'}} kassa: {{shift.earnings}} alv0: {{shift.earnings0}} wage: {{shift.wage}} <br>
   </li>
 </ul>

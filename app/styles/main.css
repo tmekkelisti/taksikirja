@@ -23,6 +23,9 @@ body {
   padding: 0;
 }
 
+td {
+  text-align: right;
+}
 
 
 /* Everything but the jumbotron gets side spacing for mobile first views */

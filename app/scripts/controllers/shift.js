@@ -26,6 +26,7 @@ angular.module('taksiajoApp')
           shift.date = dt;          
         });
         $scope.shifts = shifts;
+
       });
       
     //päivitetään uuteen vuoroon date filtteri  
@@ -35,6 +36,7 @@ angular.module('taksiajoApp')
           shift.date = new Date(shift.date);
         });
         $scope.shifts = shifts;
+        $scope.sumMonth();
     });
 
     $scope.selectedMonth = new Date().getMonth();
@@ -46,6 +48,8 @@ angular.module('taksiajoApp')
 
     $scope.$watch('selectedMonth', function(){
         $scope.monthName = monthNames[$scope.selectedMonth];
+        $scope.sumMonth();
+        console.log($scope.selectedMonth);
     })
 
     $scope.monthFilter = function(element){
@@ -70,6 +74,40 @@ angular.module('taksiajoApp')
         $scope.shifts.$add({date: date.getTime(), earnings: earnings, earnings0: alv0, wage: nettokassa});
 
       }
+
+    };
+
+    $scope.sumMonth1 = "";
+
+    $scope.sumMonth = function(){
+      var alv = 0;
+      var alv0 = 0;
+      var wage = 0;
+
+      if($scope.selectedMonth == ""){
+        angular.forEach(shifts, function(shift) {     
+            alv = alv + shift.earnings;
+            alv0 = alv0 + shift.earnings0;
+            wage = wage + shift.wage;
+        });
+      }else {
+        angular.forEach(shifts, function(shift) {
+          if(shift.date.getMonth() == $scope.selectedMonth){
+            alv = alv + shift.earnings;
+            alv0 = alv0 + shift.earnings0;
+            wage = wage + shift.wage;
+          }
+        });
+      };
+      
+      console.log(alv);
+
+      $scope.sumMonth1 = ({
+        alv: alv,
+        alv0: alv0,
+        wage: wage,
+
+      });
 
     };
 

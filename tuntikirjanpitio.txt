@@ -2,3 +2,4 @@
 281015  taksikirjan kehys, firebase ja deploy herokuun        7h
 041115  firebaseen talletus oikein, filter, $loaded, $watch   7h
 061115  pientä säätöä shifts näkymään ja controlleriin        1h
+081115  shift näkymän ulkonäkö + pari statistiikkaa           3h

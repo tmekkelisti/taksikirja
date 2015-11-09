@@ -49,8 +49,7 @@ angular.module('taksiajoApp')
     $scope.$watch('selectedMonth', function(){
         $scope.monthName = monthNames[$scope.selectedMonth];
         $scope.sumMonth();
-        console.log($scope.selectedMonth);
-    })
+    });
 
     $scope.monthFilter = function(element){
       if(!$scope.selectedMonth){
@@ -83,6 +82,7 @@ angular.module('taksiajoApp')
       var alv = 0;
       var alv0 = 0;
       var wage = 0;
+      
 
       if($scope.selectedMonth == ""){
         angular.forEach(shifts, function(shift) {     
@@ -99,17 +99,24 @@ angular.module('taksiajoApp')
           }
         });
       };
-      
-      console.log(alv);
+
+      var tyel = 0.057 * wage;
+      var tvm = 0.0065 * wage;
+      var tax = (profile.tax / 100) * wage;
+      var pay = wage - tyel - tvm - tax;
 
       $scope.sumMonth1 = ({
         alv: alv,
         alv0: alv0,
         wage: wage,
-
+        tyel: tyel,
+        tvm: tvm,
+        tax: tax,
+        pay: pay
       });
 
     };
+
 
     $scope.today = function(){
       $scope.date = new Date();
@@ -121,7 +128,8 @@ angular.module('taksiajoApp')
       var yesterday = new Date();
       yesterday.setDate(yesterday.getDate() - 1);
       $scope.date = yesterday;
-
     };
+
+
 
   });

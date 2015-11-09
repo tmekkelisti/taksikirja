@@ -39,37 +39,45 @@
       <option value="11">Joulukuu</option>  
 </select>
 <br>
-<div class="sumMonth">
+<div class="sumMonth clearfix">
   <h3>{{monthName}}</h3>
-  <p>bruttopalkka: <strong>{{sumMonth1.wage | number: 2}}e</strong></p> 
-  <p>vuoroja: {{filtered.length}} (~{{sumMonth1.wage / filtered.length | number:2}}e/vuoro)</p>
-  <p>bruttokassa: {{sumMonth1.alv | number: 2}}e</p>
+  <div class="pull-left">
+    <p>bruttopalkka:<span class="pull-right" style="padding-left:2em;"><strong>{{sumMonth1.wage | number: 2}}</strong></span></p> 
+    <p>-enn.pidätys:<span class="pull-right">{{sumMonth1.tax | number: 2}}</span></p>
+    <p>-tyel:<span class="pull-right">{{sumMonth1.tyel | number: 2}}</span></p>
+    <p>-tvm:<span class="pull-right">{{sumMonth1.tvm | number: 2}}</span></p>
+    <strong><p>nettopalkka:<span class="pull-right">{{sumMonth1.pay | number: 2}}</span></p></strong>
+  </div>
+  <div class="pull-right">
+    <p>bruttokassa: {{sumMonth1.alv | number: 2}}e</p>
   <p>nettokassa: {{sumMonth1.alv0 | number: 2}}e</p> 
+</div>
 </div>
 
 <hr>
 
 
-  <div class="table-responsive" ng-if="shifts.length != 0">
-    <table class="table table-striped" style:"text-align:right;">
-      <thead>
-        <tr>
-          <td>Päivämäärä</td>
-          <td>Bruttokassa</td>
-          <td>Nettokassa</td>
-          <td>Bruttopalkka</td>
-          <td>Poista vuoro</td>
-        </tr>
-      </thead>
-      </tbody>
-        <!--<tr ng-repeat="shift in shifts | filter: monthFilter | orderBy: '-date'">-->
-        <tr ng-repeat="shift in filtered = (shifts | filter: monthFilter)">
-          <td>{{shift.date | date:'dd/MM/yyyy'}}</td>
-          <td>{{shift.earnings | number: 2}}</td>
-          <td>{{shift.earnings0 | number: 2}}</td>
-          <td>{{shift.wage | number: 2}}</td>
-          <td><button ng-click="shifts.$remove(shift)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<div class="table-responsive" ng-if="shifts.length != 0">
+  <p>vuoroja: {{filtered.length}} (~{{sumMonth1.wage / filtered.length | number:2}}e/vuoro)</p>
+  <table class="table table-striped" style:"text-align:right;">
+    <thead>
+      <tr>
+        <td>Päivämäärä</td>
+        <td>Bruttokassa</td>
+        <td>Nettokassa</td>
+        <td>Bruttopalkka</td>
+        <td>Poista vuoro</td>
+      </tr>
+    </thead>
+    </tbody>
+      <tr ng-repeat="shift in filtered = (shifts | filter: monthFilter)">
+        <td>{{shift.date | date:'dd/MM/yyyy'}}</td>
+        <td>{{shift.earnings | number: 2}}</td>
+        <td>{{shift.earnings0 | number: 2}}</td>
+        <td>{{shift.wage | number: 2}}</td>
+        <td><button ng-click="shifts.$remove(shift)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

@@ -1,48 +1,35 @@
 
-<h2>Login Page</h2>
 
-<fieldset>
-  <legend>Oauth</legend>
-  <p>
-    <button  class="btn btn-primary" ng-click="oauthLogin('facebook')">Facebook</button>
-    <button  class="btn btn-primary" ng-click="oauthLogin('google')">Google</button>
-  </p>
-</fieldset>
-
-<form role="form">
-  <p class="form-group">
-    <label for="loginEmail">Sähköposti</label>
-    <input id="loginEmail" required name="email" type="email" ng-model="email" class="form-control" />
-  </p>
-  <p class="form-group">
-    <label for="loginPass">Salasana</label>
-    <input id="loginPass" required name="pass" type="password" ng-model="pass" class="form-control" />
-  </p>
-  <p class="form-group" ng-cloak ng-show="createMode">
-    <label for="loginConfirm">Salasana uudelleen</label>
-    <input id="loginConfirm" required name="confirm" type="password" ng-model="confirm" class="form-control" />
-  </p>
+<div class="container">
   
-<!--   <p class="form-group" ng-cloak ng-show="createMode">
-    <label for="loginName">Nimi</label>
-    <input id="loginName" required name="name" type="text" ng-model="name" class="form-control" />
-  </p>
-  <p class="form-group" ng-cloak ng-show="createMode">
-    <label for="loginProvision">Provisio%</label>
-    <input id="loginProvision" required name="provision" type="number" min="0" max="100" ng-model="provision" class="form-control" />
-  </p>
-  <p class="form-group" ng-cloak ng-show="createMode">
-    <label for="loginTax">Vero%</label>
-    <input id="loginTax" required name="tax" type="number" min="0" max="100" ng-model="tax" class="form-control" />
-  </p> -->
 
-  <p>
-    <button  class="btn btn-primary" ng-click="passwordLogin(email, pass)" ng-hide="createMode">Log In</button>
-    <button  class="btn btn-default" ng-click="createMode = true" ng-hide="createMode">Register</button>
-    <button  class="btn btn-primary" ng-cloak ng-show="createMode"
-            ng-click="createAccount(email, pass, confirm)">Create Account</button>
-    <button  class="btn btn-default" ng-cloak ng-show="createMode" ng-click="createMode = false">Cancel</button>
-  </p>
-</form>
-<p ng-show="err" class="bg-danger">{{err}}</p>
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4">
+      <h2>Kirjaudu sisään</h2>
+        <form role="form">
+          <p class="form-group">
+            <label for="loginEmail">Sähköposti</label>
+            <input id="loginEmail" required name="email" type="email" ng-model="email" class="form-control" />
+          </p>
+          <p class="form-group">
+            <label for="loginPass">Salasana</label>
+            <input id="loginPass" required name="pass" type="password" ng-model="pass" class="form-control" />
+          </p>
+          <p class="form-group" ng-cloak ng-show="createMode">
+            <label for="loginConfirm">Salasana uudelleen</label>
+            <input id="loginConfirm" required name="confirm" type="password" ng-model="confirm" class="form-control" />
+          </p>
+          
+          <p>
+            <button  class="btn btn-primary" ng-click="passwordLogin(email, pass)" ng-hide="createMode">Kirjaudu</button>
+            <button  class="btn btn-default" ng-click="createMode = true" ng-hide="createMode">Rekisteröidy</button>
+            <button  class="btn btn-primary" ng-cloak ng-show="createMode"
+                    ng-click="createAccount(email, pass, confirm)">Rekisteröidy</button>
+            <button  class="btn btn-default" ng-cloak ng-show="createMode" ng-click="createMode = false">Peruuta</button>
+          </p>
+        </form>
 
+        <p ng-show="err" class="bg-danger">{{err}}</p>
+    </div>    
+  </div>
+</div>

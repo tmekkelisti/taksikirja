@@ -44,11 +44,15 @@
               <!-- //angularfire -->
               <li><a ng-show-auth href="#/shift">Vuorot</a></li>
               <li>
-              <a ng-hide-auth="" href="#/login">Kirjaudu sisään</a>
-              <a ng-show-auth="" href="#/account">Tilitiedot</a>
-              <a ng-show-auth="" ng-click="logout()">Kirjaudu ulos</a>
-            </li>
-
+                <a ng-hide-auth="" href="#/login">Kirjaudu sisään</a>
+                <a ng-show-auth="" href="#/account">Tilitiedot</a>
+              </li>
+              
+              </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <a ng-show-auth="" ng-click="logout()">Kirjaudu ulos</a>
+                </li>
             </ul>
           </div>
         </div>

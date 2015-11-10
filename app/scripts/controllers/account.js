@@ -17,6 +17,7 @@ angular.module('taksiajoApp')
 
     $scope.changePassword = function(oldPass, newPass, confirm) {
       $scope.err = null;
+      console.log(user.password.email);
       if( !oldPass || !newPass ) {
         error('Please enter all fields');
       }
@@ -24,7 +25,7 @@ angular.module('taksiajoApp')
         error('Passwords do not match');
       }
       else {
-        Auth.$changePassword({email: profile.email, oldPassword: oldPass, newPassword: newPass})
+        Auth.$changePassword({email: user.password.email, oldPassword: oldPass, newPassword: newPass})
           .then(function() {
             success('Password changed');
           }, error);
@@ -33,7 +34,7 @@ angular.module('taksiajoApp')
 
     $scope.changeEmail = function(pass, newEmail) {
       $scope.err = null;
-      Auth.$changeEmail({password: pass, newEmail: newEmail, oldEmail: profile.email})
+      Auth.$changeEmail({password: pass, newEmail: newEmail, oldEmail: user.password.email})
         .then(function() {
           profile.email = newEmail;
           profile.$save();

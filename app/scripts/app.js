@@ -20,3 +20,11 @@ angular.module('taksiajoApp', [
     'firebase.auth',
     'ui.bootstrap'
   ]);
+
+
+
+angular.module('taksiajoApp').run(function($rootScope, Auth) {
+    $rootScope.logout = function() {
+        Auth.$unauth();
+    };
+});

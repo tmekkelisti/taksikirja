@@ -58,7 +58,7 @@
 
 
 <div class="table-responsive" ng-if="shifts.length != 0">
-  <p>vuoroja: {{filtered.length}} (~{{sumMonth1.wage / filtered.length | number:2}}e/vuoro)</p>
+  <p class="text-center">vuoroja: <strong>{{filtered.length}}</strong> (ka.alv-kassa ~{{sumMonth1.alv / filtered.length | number:2}}e/vuoro)</p>
   <table class="table table-striped" style:"text-align:right;">
     <thead>
       <tr>

@@ -5,10 +5,13 @@
   <div class="alert alert-warning" role="alert">
     <h3>Täytä profiilitiedot ennen kuin lisäät vuoroja</h3>
   </div>
+  <p>
+    <button role="button" ng-click="logout()" class="btn btn-danger">Kirjaudu ulos</button>
+  </p>
   <form role="form">
     
     <p class="form-group">
-      <label>Name:</label>
+      <label>Nimi:</label>
       <input type="text" name="name" ng-model="profile.name" class="form-control" />
     </p>
 
@@ -23,10 +26,8 @@
     </p>
 
   </form>
-
-  <p>
-    <button role="button" ng-click="logout()" class="btn btn-danger">Log Out</button>
-  </p>
+<hr>
+  
 </div>
 
 <div class="col-md-4" ng-show="{{user.provider === 'password'}}">

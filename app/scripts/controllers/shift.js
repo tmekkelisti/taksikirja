@@ -47,7 +47,12 @@ angular.module('taksiajoApp')
 
 
     $scope.$watch('selectedMonth', function(){
+      if($scope.selectedMonth == "") {
+        $scope.monthName = 'Vuosikatsaus';
+      }else{
         $scope.monthName = monthNames[$scope.selectedMonth];
+      }
+        
         $scope.sumMonth();
     });
 
@@ -98,7 +103,7 @@ angular.module('taksiajoApp')
             wage = wage + shift.wage;
           }
         });
-      };
+      }
 
       var tyel = 0.057 * wage;
       var tvm = 0.0065 * wage;
